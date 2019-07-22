@@ -1,7 +1,7 @@
 const user = require('../models/user')
 
 module.exports = function (app) {
-    app.get('/user', (req, res) => {
+    app.get('/', (req, res) => {
         user.getUsers((err, data) => {
             if (!err) {
                 res.render('index', {
