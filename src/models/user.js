@@ -5,7 +5,7 @@ let userModel = {};
 
 userModel.getUsers = (callback) => {
     if (connection) {
-        connection.query('Select * from avistamiento ORDER BY id',
+        connection.query('Select * from archivo ORDER BY id',
             (err, rows) => {
                 if (err) {
                     throw err;
@@ -21,7 +21,7 @@ userModel.getUsers = (callback) => {
 
 userModel.insertUser = (userData, callback) => {
     if (connection) {
-        connection.query('INSERT INTO AVISTAMIENTO SET ?', userData,
+        connection.query('INSERT INTO archivo SET ?', userData,
             (err, result) => {
                 if (err) {
                     throw err;
@@ -35,30 +35,7 @@ userModel.insertUser = (userData, callback) => {
 }
 
 
-userModel.deleteUser = (id, callback) => {
-    if (connection) {
-        const sql = 'SELECT * FROM avistamiento WHERE id= ${connection.escape(id)}'
-        connection.query(sql, (err, row) => {
-            if (row) {
-                let sql = 'DELETE FROM avistamiento id=${id}'
-                connection.query(sql, (err, result) => {
-                    if (err) {
-                        throw err
-                    } else {
-                        callback(null, {
-                            msg: 'deleted'
-                        })
-                    }
-                })
 
-            } else {
-                callback(null, {
-                    msg: 'not exists'
-                })
-            }
-        })
-    }
-}
 
 
 
