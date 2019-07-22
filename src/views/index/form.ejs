@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>Nivel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%if(data){%>
+                    <%for(var i=0;i< data.length;i++){%>
+                    <tr>
+
+                        <td><%= data[i].id%></td>
+                        <td><%= data[i].nombre%></td>
+                        <td><%= data[i].nivel%></td>
+
+                    </tr>
+                    <% }%>
+                    <% }%>
+                </tbody>
+
+            </table>
+        </div>
+
+
+    </div>

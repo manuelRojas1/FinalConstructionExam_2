@@ -3,15 +3,18 @@ const user = require('../models/user')
 module.exports = function (app) {
     app.get('/', (req, res) => {
         res.render('index')
-        /*  user.getUsers((err, data) => {
-             if (!err) {
-                 res.render('index', {
-                     news: data
-                 })
-             } else {
-                 throw err
-             }
-         }) */
+    })
+
+    app.get('/form', (req, res) => {
+        user.getUsers((err, data) => {
+            if (!err) {
+                res.render('form', {
+                    data: data
+                })
+            } else {
+                throw err
+            }
+        })
     })
 
     app.post('/users', (req, res) => {

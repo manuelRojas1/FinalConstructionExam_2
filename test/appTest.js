@@ -7,41 +7,45 @@ const dbcn = require('../src/models/connection');
 const db = dbcn()
 chai.use(chaiHttp);
 const url = 'http://localhost:3000';
+
 describe('getuser()', function () {
-  /*it('should the data of the getUser() method be an array', function (done) {
+  it('should the data of the getUser() method be an array', function (done) {
     user.getUsers((e, r) => {
       assert.typeOf(r, "array");
       done()
     });
-  });*/
+  });
 
-  /*it('probando el tamaño del array de los datos',async function (done) {
+  it('probando el tamaño del array de los datos', async function (done) {
     user.getUsers((e, r) => {
       let tam = r.length;
-      assert.equal(tam,1, "Tamaño 1")
+      console.log(tam)
+      assert.equal(tam, 1, "Tamaño 1")
       done();
     })
-  })*/
+  })
 
-  /*   it('probando la consulta', function (done) {
-      let consulta = 'Select * from avistamiento '
-      user.getUsers((e, r) => {
-        db.query(consulta,
-          (e, r) => {
-            if (e) {
-              done(e)
-              return
-            }
-            assert.equal('SELECT * from avistamiento',consulta,'asdasdas')
-            done()
+
+
+  it('probando la consulta', function (done) {
+    let consulta = 'SELECT * from archivo '
+    user.getUsers((e, r) => {
+      db.query(consulta,
+        (e, r) => {
+          if (e) {
+            done(e)
+            return
           }
-        )
-      })
-    }) */
+          assert.equal('SELECT * from archivo', consulta, 'asdasdas')
+          done()
+        }
+      )
+    })
+  })
 
 });
 
-describe('get all users: ', () => {
+/* describe('get all users: ', () => {
   it('should get all users', (done) => {
     chai.request(url)
       .get('/user')
@@ -51,4 +55,4 @@ describe('get all users: ', () => {
         done();
       });
   });
-});
+}); */

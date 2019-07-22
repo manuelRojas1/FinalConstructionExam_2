@@ -5,7 +5,7 @@ let userModel = {};
 
 userModel.getUsers = (callback) => {
     if (connection) {
-        connection.query('Select * from archivo ORDER BY id',
+        connection.query('Select * from archivo',
             (err, rows) => {
                 if (err) {
                     throw err;
